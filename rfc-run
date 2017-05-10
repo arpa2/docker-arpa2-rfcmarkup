@@ -1,0 +1,6 @@
+#!/bin/sh
+
+ietf-rfc-update &
+
+rfcmarkup.rvr
+
