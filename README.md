@@ -20,10 +20,10 @@ too.
 
 ## Running the Docker Image
 
-Assuming you have built `arpa2:base` followed by `arpa2:rfcmarkup`
-you can run
+Assuming you have built the ARPA2 base with tag `arpa2:base`, and
+this image with tag `arpa2:rfcmarkup`, you can run
 
-    docker run \
+    docker run -d \
                -p 127.0.0.1:7059:7059 \
                -v ~/Documents/ietf.org:/var/www/ietf.org arpa2:rfcmarkup
 
@@ -41,10 +41,13 @@ simply because it does/did not have a visible versioning system to
 fork off of.  This is also the only reason why these changes have not
 been offered back to the tool authors.
 
-We might setup (a better) tool to automatically update the textual
+**DONE:** We might setup (a better) tool to automatically update the textual
 RFC directory.
 
 We might setup caching, so we can serve specifications much faster.
+
+We might avoid that the 1st page for an RFC is served from a
+different URL than all the linked pages that follow.
 
 We might use Etag headers to instruct browsers that they can trust
 their web caches and simply look for a referenced anchor in the
@@ -56,7 +59,7 @@ side references to other RFCs.
 
 If you feel like adding, then please have a ball!
 
-The volume `/var/www/ietf.org` is exported, and it is probably good to
+**DONE:** The volume `/var/www/ietf.org` is exported, and it is probably good to
 link it to a local directory.  That way, we can access the text literally,
 for instance with `grep`, and we have a place where updates are stored
 so a restart of the container does not always have to bother IETF for the
